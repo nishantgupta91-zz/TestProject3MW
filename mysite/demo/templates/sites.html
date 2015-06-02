@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+	{% block header_content %}
+		<li id='sites' class="active"><a href="{% url 'demo.views.sites' %}">Sites</a></li>
+		<li id='summary'><a href="{% url 'demo.views.sum_summary' %}">Summary</a></li>
+	{% endblock header_content %}
+	{% block content %}
+	<h1>Sites</h1>
+		{% for record in contents %}
+			<li class="list-group-item list-group-item-info"><a href="{% url 'demo.views.sites_details' pk=record.pk %}"> {{ record }} </a></li>
+		{% endfor %}
+	{% endblock content %}

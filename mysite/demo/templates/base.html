@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <title>3MW Application Assignment</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="nav navbar-nav">
+					{% block header_content %}
+					{% endblock %}
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</nav>
+	</header>
+	
+	<div class="container">
+		<ul class="list-group">
+			{% block content %}
+			{% endblock %}
+		</ul>
+	</div>
+</body>
+
+</html>

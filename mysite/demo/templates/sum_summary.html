@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+	{% block header_content %}
+		<li id='sites'><a href="{% url 'demo.views.sites' %}">Sites</a></li>
+		<li id='summary' class="active"><a href="{% url 'demo.views.sum_summary' %}">Summary</a></li>
+	{% endblock header_content %}
+	{% block content %}
+		<h1>Summary</h1>
+		<a href="{% url 'demo.views.sum_summary' %}"><button type="button" class="btn btn-primary active">Sum</button></a>
+		<a href="{% url 'demo.views.average_summary' %}"><button type="button" class="btn btn-primary">Average</button></a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Site</th>
+					<th>A Value</th>
+					<th>B Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for record in post %}
+				<tr>
+					<td>{{ record.0 }}</td>
+					<td>{{ record.1 }}</td>
+					<td>{{ record.2 }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+	{% block header_content %}
+		<li id='sites' class="active"><a href="{% url 'demo.views.sites' %}">Sites</a></li>
+		<li id='summary'><a href="{% url 'demo.views.sum_summary' %}">Summary</a></li>
+	{% endblock header_content %}
+
+	{% block content %}
+		<h1>Sites Details - {{ post.0.relatedSite }}</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Date-Time</th>
+					<th>A Value</th>
+					<th>B Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for record in post %}
+				<tr>
+					<td>{{ record.date }}</td>
+					<td>{{ record.aValue }}</td>
+					<td>{{ record.bValue }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endblock content %}
